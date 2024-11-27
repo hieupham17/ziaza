@@ -1,0 +1,225 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Quản lý người dùng</h2><br>
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-table me-1"></i>
+                Danh sách tài khoản người dùng
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal"
+                 data-bs-target="#addModal">
+                <!-- Nút thêm mới -->
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addModal">Thêm
+                    mới
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <!-- Radio Buttons để chọn vai trò -->
+            <div class="mb-3">
+                <label>Vai trò:</label><br>
+                <input type="radio" id="employeeRole" ng-model="selectedRole" value="USER"> Nhân viên
+                <input type="radio" id="customerRole" ng-model="selectedRole" value="CLIENT"> Khách hàng
+            </div>
+
+            <!-- Ô tìm kiếm theo hoVaTen -->
+            <input type="text" ng-model="searchText" placeholder="Tìm kiếm theo họ và tên..." class="form-control mb-3"
+                   ng-change="fetchUsers()"/>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Vai trò</th>
+                    <th>Xác thực</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in currentEmployees track by user.id">
+                    <td>{{$index + 1 + pager.page * pager.itemsPerPage}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.role}}</td>
+                    <td>{{user.verified ? 'Đã xác thực' : 'Chưa xác thực'}}</td>
+                    <td>
+                        <span ng-if="user.status === 'ACTIVE'" class="badge bg-success">Đang hoạt động</span>
+                        <span ng-if="user.status === 'LOCKED'" class="badge bg-danger">Đã khóa</span>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" ng-click="detailUser(user.id)">Xem chi tiết</button>
+                        <!-- Nút Khóa khi người dùng có trạng thái ACTIVE -->
+                        <button class="btn btn-danger" ng-if="user.status === 'ACTIVE'"
+                                ng-click="prepareLockUser(user)">Khóa
+                        </button>
+
+                        <!-- Nút Mở khóa khi người dùng có trạng thái LOCKED -->
+                        <button class="btn btn-success" ng-if="user.status === 'LOCKED'"
+                                ng-click="prepareUnlockUser(user)">Mở khóa
+                        </button>
+                    </td>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Phân trang -->
+            <div class="panel-footer text-center">
+                <button ng-click="pager.first()" class="btn btn-danger">
+                    <i class="fas fa-angle-double-left"></i>
+                </button>
+                <button ng-click="pager.prev()" class="btn btn-primary">
+                    <i class="fas fa-angle-left"></i>
+                </button>
+                <button class="btn btn-success"> {{employees.currentPage}} / {{employees.totalPage}}</button>
+                <button ng-click="pager.next()" class="btn btn-primary">
+                    <i class="fas fa-angle-right"></i>
+                </button>
+                <button ng-click="pager.last()" class="btn btn-danger">
+                    <i class="fas fa-angle-double-right"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addModalLabel">Thêm Tài Khoản Mới</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addAccountForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Tên</label>
+                                <input type="text" class="form-control" id="name" ng-model="newAccount.name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" ng-model="newAccount.email"
+                                       required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" id="phone" ng-model="newAccount.phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mật khẩu</label>
+                                <input type="password" class="form-control" id="password" ng-model="newAccount.password"
+                                       required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="retypePassword" class="form-label">Nhập lại mật khẩu</label>
+                                <input type="password" class="form-control" id="retypePassword"
+                                       ng-model="newAccount.retypePassword" required>
+                            </div>
+<!--                            <div class="mb-3">-->
+<!--                                <label for="ngaySinh" class="form-label">Ngày sinh</label>-->
+<!--                                <input type="date" class="form-control" id="ngaySinh" ng-model="newAccount.ngaySinh"-->
+<!--                                       required>-->
+<!--                            </div>-->
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Vai trò</label>
+                                <select class="form-control" id="role" ng-model="newAccount.role" required>
+                                    <option value="USER">Nhân viên</option>
+                                    <option value="CLIENT">Khách hàng</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" ng-click="addAccount()">Thêm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailModalLabel">Chi tiết người dùng</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="userName">Email</label>
+                                <input type="text" class="form-control" id="userName" ng-model="selectedUser.userName"
+                                       readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="hoVaTen">Họ và tên</label>
+                                <input type="text" class="form-control" id="hoVaTen"
+                                       ng-model="selectedUser.profile.hoVaTen" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="text" class="form-control" id="phone" ng-model="selectedUser.profile.phone"
+                                       readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="ngaySinh">Ngày sinh</label>
+                                <input type="text" class="form-control" id="ngaySinh"
+                                       ng-model="selectedUser.profile.ngaySinh | date:'dd/MM/yyyy'" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="gioiTinh">Giới tính</label>
+                                <input type="text" class="form-control" id="gioiTinh"
+                                       ng-model="selectedUser.profile.gioiTinh" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="diaChi">Địa chỉ</label>
+                                <input type="text" class="form-control" id="diaChi"
+                                       ng-model="selectedUser.profile.diaChi" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="cccd">CCCD</label>
+                                <input type="text" class="form-control" id="cccd" ng-model="selectedUser.profile.cccd"
+                                       readonly>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Confirm -->
+        <div class="modal" id="confirmModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{modalTitle}}</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{modalMessage}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- Nút xác nhận với ng-class để thay đổi màu khi action là "ACTIVE" -->
+                        <button
+                                type="button"
+                                class="btn"
+                                ng-class="{'btn-success': modalAction === 'ACTIVE', 'btn-danger': modalAction === 'LOCKED'}"
+                                ng-click="confirmAction()">
+                            {{modalConfirmButton}}
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

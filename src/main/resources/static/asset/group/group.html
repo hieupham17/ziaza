@@ -1,0 +1,158 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Quản lý phân quyền</h2><br>
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-table me-1"></i>
+                Danh sách nhóm quyền
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal" data-bs-target="#addModal">
+                <!-- Nút thêm mới -->
+                <button class="btn btn-primary" ng-click="resetForm(); $('#addModal').modal('show')">Thêm mới</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <input type="text" ng-model="searchText" placeholder="Tìm kiếm..." class="form-control mb-3" ng-change="search()"/>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Tên nhóm</th>
+                    <th>Mô tả</th>
+                    <th>Số người</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="group in groups">
+                    <td>{{ group.ten }}</td>
+                    <td>{{ group.moTa }}</td>
+                    <td>{{ group.count }}</td>
+                    <td>
+                        <span ng-if="group.trangThai == 1" class="badge bg-success">Đang hoạt động</span>
+                        <span ng-if="group.trangThai == 0" class="badge bg-danger">Đã khóa</span>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning" ng-click="editGroup(group)">Chỉnh sửa</button>
+                        <button class="btn"
+                                ng-class="group.trangThai == 1 ? 'btn-danger' : 'btn-success'"
+                                ng-click="confirmLock(group)">
+                            {{ group.trangThai == 1 ? 'Khoá' : 'Mở khóa' }}
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="panel-footer text-center">
+                <button ng-click="pager.first()" class="btn btn-danger">
+                    <i class="fas fa-angle-double-left"></i> <!-- Tiến đến đầu -->
+                </button>
+                <button ng-click="pager.prev()" class="btn btn-primary">
+                    <i class="fas fa-angle-left"></i> <!-- Lùi 1 -->
+                </button>
+                <button class="btn btn-success">{{pager.page}} of {{pager.count}}</button>
+                <button ng-click="pager.next()" class="btn btn-primary">
+                    <i class="fas fa-angle-right"></i> <!-- Tiến 1 -->
+                </button>
+                <button ng-click="pager.last()" class="btn btn-danger">
+                    <i class="fas fa-angle-double-right"></i> <!-- Lùi đến cuối -->
+                </button>
+            </div>
+        </div>
+        <!-- Modal Thêm Mới Nhóm Quyền -->
+        <!-- Modal Thêm Mới Nhóm Quyền -->
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true" ng-controller="group-ctrl">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addModalLabel">{{ isEdit ? 'Chỉnh sửa nhóm quyền' : 'Thêm mới nhóm quyền' }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Tên Nhóm Quyền -->
+                        <div class="mb-3">
+                            <label for="groupName" class="form-label">Tên nhóm quyền</label>
+                            <input type="text" class="form-control" id="groupName" ng-model="newGroupName" placeholder="Nhập tên nhóm quyền">
+                        </div>
+
+                        <!-- Mô Tả Nhóm -->
+                        <div class="form-group mb-3">
+                            <label for="groupDesc">Mô Tả:</label>
+                            <textarea class="form-control" id="groupDesc" ng-model="newGroupDesc"></textarea>
+                        </div>
+
+                        <!-- Danh sách quyền -->
+                        <div class="mb-3">
+                            <label class="form-label">Danh sách quyền</label>
+                            <div class="function-list" ng-repeat="function in functions">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" ng-model="function.selected" id="function-{{function.id}}">
+                                    <label class="form-check-label" for="function-{{function.id}}">{{ function.ten }}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Danh sách người dùng -->
+                        <div class="row">
+                            <!-- Danh sách người dùng chưa có trong nhóm -->
+                            <div class="col-4">
+                                <h5>Danh sách người dùng</h5>
+                                <ul class="list-group list-group-flush user-list">
+                                    <li class="list-group-item" ng-repeat="user in allUsers">
+                                        <input type="checkbox" ng-model="user.selected" ng-change="moveUserToGroup(user)" /> {{ user.profile.hoVaTen }}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Mũi tên trái phải -->
+                            <div class="col-4 text-center">
+                                <button class="btn btn-primary" ng-click="moveAllUsersToGroup()"> >> </button><br><br>
+                                <button class="btn btn-secondary" ng-click="moveAllUsersBackToList()"> << </button>
+                            </div>
+
+                            <!-- Người dùng trong nhóm -->
+                            <div class="col-4">
+                                <h5>Người dùng trong nhóm</h5>
+                                <ul class="list-group user-list">
+                                    <li class="list-group-item" ng-repeat="user in selectedUsers">
+                                        <input type="checkbox" ng-model="user.selected" ng-change="moveUserBackToList(user)" /> {{ user.profile.hoVaTen }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary" ng-click="saveGroup()">Đồng ý</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Confirm -->
+        <div class="modal" id="confirmModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{modalTitle}}</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{modalMessage}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" ng-click="confirmChangeStatus()">Xác nhận</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>

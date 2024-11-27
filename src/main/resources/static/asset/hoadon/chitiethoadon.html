@@ -1,0 +1,67 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Chi tiết hóa đơn: {{selectedInvoiceMa}}</h2><br>
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-table me-1"></i>
+                Danh sách sản phẩm chi tiết
+            </div>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Màu</th>
+                    <th>Size</th>
+                    <th>Số lượng</th>
+                    <th>Tổng giá</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in pager.items">
+                    <td>{{$index + 1 + (pager.page * pager.size)}}</td>
+                    <td>{{item.sanPhamChiTietModel.sanPham.ma}}</td>
+                    <td>{{item.sanPhamChiTietModel.sanPham.ten}}</td>
+                    <td>{{item.sanPhamChiTietModel.mauSac.ten}}</td>
+                    <td>{{item.sanPhamChiTietModel.size.ten}}</td>
+                    <td>{{item.soLuong}}</td>
+                    <td>{{item.gia}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="panel-footer d-flex justify-content-between align-items-center">
+                <!-- Bộ chọn số lượng dữ liệu hiển thị -->
+                <div class="me-auto">
+                    <label for="pageSizeSelect" class="me-2">Hiển thị:</label>
+                    <select id="pageSizeSelect" ng-model="pager2.size" ng-change="pager2.updateItems()" class="form-select d-inline-block w-auto">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+
+                <!-- Điều hướng trang -->
+                <div class="text-center">
+                    <button ng-click="pager2.first()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-left"></i>
+                    </button>
+                    <button ng-click="pager2.prev()" class="btn btn-primary">
+                        <i class="fas fa-angle-left"></i>
+                    </button>
+                    <button class="btn btn-success">{{pager2.page + 1}} of {{pager2.count}}</button>
+                    <button ng-click="pager2.next()" class="btn btn-primary">
+                        <i class="fas fa-angle-right"></i>
+                    </button>
+                    <button ng-click="pager2.last()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,211 @@
+[33mcommit 1227949a44319f01b6e01c5bf0af0f989fb6c871[m[33m ([m[1;36mHEAD -> [m[1;32mchu1[m[33m, [m[1;31morigin/chu1[m[33m)[m
+Merge: 79b3907 f269714
+Author: chujjjj4 <149958112+chujjjj4@users.noreply.github.com>
+Date:   Tue Oct 15 17:10:02 2024 +0700
+
+    2
+
+[33mcommit 79b39074038bc889464a62c56f6f1f4e2c7155ad[m
+Author: chujjjj4 <149958112+chujjjj4@users.noreply.github.com>
+Date:   Tue Oct 15 16:53:10 2024 +0700
+
+    1
+
+[33mcommit f26971464316a9e4e6a17b7cc8a9785a0c52e92b[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/2[m[33m, [m[1;32mmaster[m[33m)[m
+Author: hoang121160 <danghoang121101@gmail.com>
+Date:   Tue Oct 15 10:35:55 2024 +0700
+
+    update
+
+[33mcommit ae966b1f97a1fd66827549a3d1bc0edc74cf1348[m[33m ([m[1;31morigin/1[m[33m)[m
+Author: hoang121160 <danghoang121101@gmail.com>
+Date:   Tue Oct 15 08:36:42 2024 +0700
+
+    fix
+
+[33mcommit b9fde4657418c12238436fc20e49c28eb0ba28a6[m
+Merge: 000f639 dda5e9e
+Author: chujjjj4 <149958112+chujjjj4@users.noreply.github.com>
+Date:   Tue Oct 15 00:12:22 2024 +0700
+
+    Merge branch 'chu1'
+
+[33mcommit dda5e9ed3833929a63ea0bc31716653d36178791[m
+Author: chujjjj4 <149958112+chujjjj4@users.noreply.github.com>
+Date:   Tue Oct 15 00:09:07 2024 +0700
+
+    update spl
+
+[33mcommit e8464e61c65439c6df66e7a49df0299d3ec9cd96[m
+Author: chujjjj4 <149958112+chujjjj4@users.noreply.github.com>
+Date:   Tue Oct 15 00:06:45 2024 +0700
+
+    api size, mau, chat, thuong, danh
+
+[33mcommit 000f639b7bbc6ecb217feb655383908e1128cf2d[m
+Merge: 356d733 a260810
+Author: Hoàng Khổng <144081006+hoang121160@users.noreply.github.com>
+Date:   Mon Oct 14 19:38:43 2024 +0700
+
+    Merge pull request #2 from NguyenThanhPhuongg/1
+    
+    1
+
+[33mcommit a260810f8b716fbcaf4f365fcb0abbeea4b433c0[m
+Merge: 51a0a17 356d733
+Author: hoang121160 <danghoang121101@gmail.com>
+Date:   Mon Oct 14 19:37:18 2024 +0700
+
+    Resolved merge conflict in application.properties
+
+[33mcommit 51a0a1756eacadb74fcabd8fc0c5513366bd893b[m
+Author: hoang121160 <danghoang121101@gmail.com>
+Date:   Mon Oct 14 19:35:09 2024 +0700
+
+    feat
+
+[33mcommit 356d733c32e6849bb1ab4c6e11008b01197afa35[m
+Author: chujjjj4 <149958112+chujjjj4@users.noreply.github.com>
+Date:   Mon Oct 14 01:25:32 2024 +0700
+
+    font-end khachhang, nhanvien
+
+[33mcommit 20bfc80eedb23883f3a2c25e1716a2a831370661[m
+Merge: 59f4acc 6c5c3d8
+Author: Thanh Hieu Pham <ahieu5377@gmail.com>
+Date:   Sun Oct 13 20:56:06 2024 +0700
+
+    Merge branch 'master' of https://github.com/NguyenThanhPhuongg/DATN_SD45
+
+[33mcommit 59f4accf40084869eb37aa1628884688709a8f94[m
+Author: Thanh Hieu Pham <ahieu5377@gmail.com>
+Date:   Sun Oct 13 20:55:26 2024 +0700
+
+    update properties
+
+[33mcommit 6c5c3d83f0ac3e25e9bb4fec610f23e10494a044[m[33m ([m[1;31morigin/phuong[m[33m)[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Sun Oct 13 20:24:06 2024 +0700
+
+    update-productDetail-slideshow
+    
+    Signed-off-by: ThanhPhuongg <phuong306204@gmail.com>
+
+[33mcommit 1203660812027d35b9b122170813d2b5a1fb0b49[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Sat Oct 12 21:27:16 2024 +0700
+
+    hihi
+
+[33mcommit b0c8101964db9ecb91480fa40d37c78ca781ea86[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Sat Oct 12 20:52:07 2024 +0700
+
+    done-productDetail-fe
+
+[33mcommit 3d93b779a736517d0cc3825263f173087779cee9[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Sat Oct 12 17:31:51 2024 +0700
+
+    productDetail
+
+[33mcommit ffbd3e5efb866d914373cd6c9d74f68417062356[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Sat Oct 12 14:54:30 2024 +0700
+
+    update-auth-fe
+
+[33mcommit f69d2d4a007d3bcb294274b10e09534f7eadb7fd[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Sat Oct 12 12:23:02 2024 +0700
+
+    wishlist-fe
+
+[33mcommit 1a8918f2df9558abbe809e24d70437d045db5e16[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Sat Oct 12 11:02:39 2024 +0700
+
+    phuong-update-login_register-fe
+
+[33mcommit 2e66914c0f9875c67f5302130988500edc95fc58[m
+Merge: 50bef38 7152add
+Author: THANHHIEN\DELL <thanhhiens1604@gmail.com>
+Date:   Sat Oct 12 01:15:10 2024 +0700
+
+    Merge branch 'master' of https://github.com/NguyenThanhPhuongg/DATN_SD45
+
+[33mcommit 50bef38922e0960c7eceb8051ed3883d8a1856ed[m
+Author: THANHHIEN\DELL <thanhhiens1604@gmail.com>
+Date:   Sat Oct 12 01:14:19 2024 +0700
+
+    update payment
+
+[33mcommit 7152add9217fa52d6b4ccb32c4f9fcee2b8bc0df[m
+Merge: 36e7d2b 89301d0
+Author: Thanh Hieu Pham <ahieu5377@gmail.com>
+Date:   Sat Oct 12 00:55:34 2024 +0700
+
+    Merge branch 'hieupt'
+
+[33mcommit 89301d08ebbf1cc7cd7c88426f8213306acd86b3[m[33m ([m[1;31morigin/hieupt[m[33m)[m
+Author: Thanh Hieu Pham <ahieu5377@gmail.com>
+Date:   Sat Oct 12 00:45:42 2024 +0700
+
+    list-product-fe
+
+[33mcommit 36e7d2b93934cf12e1a9d32165b5d1a065548dfe[m
+Author: THANHHIEN\DELL <thanhhiens1604@gmail.com>
+Date:   Fri Oct 11 22:07:50 2024 +0700
+
+    update fe checkout
+
+[33mcommit 92a22339736920f3fa22223c83f556aaa5b5e138[m
+Author: chujjjj4 <149958112+chujjjj4@users.noreply.github.com>
+Date:   Fri Oct 11 19:15:17 2024 +0700
+
+    update sql
+
+[33mcommit 2ca2c8f0045ee7eee17be157efbed481ae053a5c[m
+Merge: 92ea7f7 e714102
+Author: Hoàng Khổng <144081006+hoang121160@users.noreply.github.com>
+Date:   Fri Oct 11 17:05:23 2024 +0700
+
+    Merge pull request #1 from NguyenThanhPhuongg/1
+    
+    feat
+
+[33mcommit e7141029634582d40b3cb2c0a5043c019254a2a7[m
+Author: hoang121160 <danghoang121101@gmail.com>
+Date:   Fri Oct 11 17:03:27 2024 +0700
+
+    feat
+
+[33mcommit 92ea7f79a075c2ef4992b09186c68e0a72442992[m[33m ([m[1;31morigin/thanhPhuong[m[33m)[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Fri Oct 11 12:35:28 2024 +0700
+
+    home-fe
+
+[33mcommit 646b97891907220e39e6b2cf3732300564663e69[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Fri Oct 11 12:17:35 2024 +0700
+
+    Phuong-onlineSells-Action
+
+[33mcommit 4c6c11f5adf2b9af101136387ee243cb99c0b4b6[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Fri Oct 11 10:11:31 2024 +0700
+
+    home-fe
+
+[33mcommit df8d484155cad9ea582bfb7885edab5e097ae321[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Fri Oct 11 09:29:39 2024 +0700
+
+    cart-fe
+
+[33mcommit e5e6f1c587f897986ea82eb463a6bc3aa6eb8aa3[m
+Author: ThanhPhuongg <phuong306204@gmail.com>
+Date:   Thu Oct 10 23:32:34 2024 +0700
+
+    template project

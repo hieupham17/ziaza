@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" lang="vi-VN" dir="LTR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="/css/headerAll.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.js"></script>
+
+    <script src="/js/headerJs.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/review.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/productDetail.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Thêm Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+
+    <!-- Thêm Toastr JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!--    <script src="/js/product.js"></script>-->
+    <script src="/js/home.js"></script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+<div th:include="header-all :: body"></div>
+<main>
+    <div class="container mt-5">
+
+        <div class="row">
+            <!-- Slide hình ảnh (cột bên trái) -->
+            <div class="col-md-6">
+                <div class="image-wrapper">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="productImages">
+                            <!-- Các ảnh sẽ được chèn vào đây bằng JavaScript -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form sản phẩm (cột bên phải) -->
+            <div class="col-md-6 shadow-container">
+                <form id="productForm" action="" >
+                    <!-- Tên sản phẩm -->
+                    <h1 class="mt-2" id="productName"></h1>
+
+                    <!-- Thương hiệu và mã sản phẩm -->
+                    <div class="mb-2 fs-5">Thương hiệu: <b id="productBrand"></b></div>
+                    <div class="mb-2 fs-5">Mã sản phẩm: <b id="productCode"></b></div>
+
+                    <!-- Giá sản phẩm -->
+                    <p class="fs-5">
+                        Giá: <span class="text-danger me-3" id="productPrice"></span>
+                        <del class="text-muted" id="productOldPrice"></del>
+                    </p>
+                    <input type="hidden" name="price_product" id="priceProduct">
+
+                    <!-- Tùy chọn màu sắc -->
+                    <div class="mt-2 fs-5">
+                        <label>Màu sắc:</label><br>
+                        <div id="colorOptions"></div>
+                    </div>
+
+                    <!-- Tùy chọn kích thước -->
+                    <div class="mt-2 fs-5">
+                        <label>Kích thước:</label><br>
+                        <div id="sizeOptions"></div>
+                    </div>
+
+                    <!-- Nhập số lượng -->
+                    <div class="d-flex align-items-center">
+                        <span class="me-3 fs-5">Số lượng:</span>
+                        <div class="input-group w-auto">
+                            <button class="btn btn-outline-secondary" type="button" id="decreaseQuantity">
+                                <i class="bi bi-dash"></i>
+                            </button>
+                            <input style="width: 50px;" type="number" class="form-control text-center"
+                                   id="quantityInput"
+                                   value="1" min="1" step="1"/>
+                            <button class="btn btn-outline-secondary" type="button" id="increaseQuantity">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hiển thị số lượng còn lại -->
+                    <div id="availableQuantity" class="mt-2">
+                        <label>Số lượng còn lại: <span id="quantityLeft"></span> </label>
+                    </div>
+
+                    <!-- Hiển thị tổng tiền -->
+                    <div id="total_price" class="mb-2" style="display:none;">
+                        Tổng tiền: <span id="totalPriceValue"></span> VND
+                    </div>
+                    <hr>
+
+                    <!-- Nút hành động -->
+                    <button type="button" class="btn btn-dark btn-buy" id="buyButton" style="margin-right: 10px;width: 135px; height: 50px">Mua hàng</button>
+                    <button type="button" class="btn btn-outline-dark btn-addcart" id="addToCartButton" style="margin-right: 10px;width: 135px; height: 50px" >Thêm vào giỏ hàng</button>
+                    <hr>
+
+                    <!-- Mô tả sản phẩm -->
+                    <div>
+                        <b>Mô tả ngắn:</b>
+                        <p id="productDescription"></p>
+                    </div>
+                </form>
+                <hr>
+            </div>
+        </div>
+
+        <div class="container d-flex align-items-center justify-content-center">
+            <div class="mt-5 col-md-10 text-detail">
+                <h1 style="text-align: center">CHI TIẾT SẢN PHẨM</h1>
+                <table class="mt-4" style="text-align: center;">
+                    <tr>
+                        <th>Dòng sản phẩm</th>
+                        <td>You</td>
+                    </tr>
+                    <tr>
+                        <th>Loại sản phẩm</th>
+                        <td>Áo khoác</td>
+                    </tr>
+                    <tr>
+                        <th>Cổ áo</th>
+                        <td>Cổ đức không chân</td>
+                    </tr>
+                    <tr>
+                        <th>Tay áo</th>
+                        <td>Tay dài</td>
+                    </tr>
+                    <tr>
+                        <th>Kiểu dáng</th>
+                        <td>Xuông</td>
+                    </tr>
+                    <tr>
+                        <th>Độ dài</th>
+                        <td>Ngang hông</td>
+                    </tr>
+                    <tr>
+                        <th>Họa tiết</th>
+                        <td>Trơn</td>
+                    </tr>
+                    <tr>
+                        <th>Chất liệu</th>
+                        <td>Dạ</td>
+                    </tr>
+                </table>
+
+                <p>Áo vest dạ cổ đức không chân, dáng dài ngang hông. Tay áo dài. 2 túi vuông có nắp phía trước. Cài
+                    bằng hàng khuy phía trước. Mix cùng chân váy chữ A đồng bộ.</p>
+                <p>Dáng áo ngắn tạo cảm giác trẻ trung khi mặc. Chất liệu dạ xù, bên trong lót vải lụa mềm mịn tạo cảm
+                    giác thoải mái.</p>
+
+            </div>
+        </div>
+
+
+        <div class="mt-5">
+            <h2>Đánh giá</h2>
+            <hr>
+            <div class="review_products">
+                <img src="/images/avt.jpg" alt="Avatar" class="avatar">
+                <div class="content">
+                    <div class="name">Nguyễn Văn A</div>
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+                    <div class="comment">
+                        Sản phẩm rất tuyệt vời, chất lượng tốt, giao hàng nhanh chóng. Mình rất hài lòng với trải
+                        nghiệm mua sắm lần này!
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_products">
+                <img src="/images/avt.jpg" alt="Avatar" class="avatar">
+                <div class="content">
+                    <div class="name">Trần Thị B</div>
+                    <div class="stars">
+                        ★★★★☆
+                    </div>
+                    <div class="comment">
+                        Sản phẩm ổn, nhưng thời gian giao hàng hơi lâu. Mình hy vọng lần sau dịch vụ sẽ nhanh hơn.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:include="footer::body"></div>
+<!--<script src="/js/prodcutDetail.js"></script>-->
+<!-- Thông báo không có token -->
+<div id="tokenWarning" class="alert alert-warning fixed-top w-100" role="alert" style="display: none; z-index: 1050;">
+    <div class="container text-center">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="font-size: 24px;">
+            <strong>Cảnh báo!</strong> Bạn chưa đăng nhập. Vui lòng đăng nhập để tiếp tục.
+            <button type="button" class="btn-close" id="closeTokenWarning" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal xác nhận -->
+<div id="confirmModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h3>Xác nhận thêm vào giỏ hàng</h3>
+        <p>Bạn có chắc chắn muốn thêm sản phẩm vào giỏ hàng?</p>
+        <div class="modal-actions">
+            <button id="confirmAddToCart" class="btn-confirm">Xác nhận</button>
+            <button id="cancelAddToCart" class="btn-cancel">Hủy</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

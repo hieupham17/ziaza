@@ -1,0 +1,280 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    background-color: #f0f0f0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Thêm đổ bóng */
+}
+
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+    height: 800px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.edit-profile {
+    font-size: 12px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.sidebar a:hover {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 20px;
+    background-color: #fff;
+    height: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group input[type="radio"] {
+    width: auto;
+}
+
+.form-group .radio-group {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group .radio-group label {
+    display: inline;
+}
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.form-group button:hover {
+    background-color: #e64a19;
+}
+
+.form-group .dob-group {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group .dob-group select {
+    width: auto;
+    flex-grow: 1;
+}
+
+.tabs {
+    display: none;
+}
+
+.tabs.active {
+    display: block;
+}
+
+.tabs ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.tabs ul li {
+    flex-grow: 1;
+}
+
+.tabs ul li a {
+    text-decoration: none;
+    padding: 15px;
+    background-color: #f5f5f5;
+    color: #333;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.tabs ul li a:hover, .tabs ul li a.active {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.separator {
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+
+.profile-form-container {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 100px);
+}
+
+.profile-form-container .form-section, .profile-form-container .profile-pic-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form-container .form-section {
+    margin-right: 20px;
+}
+
+.profile-pic-section {
+    text-align: center;
+}
+
+.profile-pic-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.sub-menu a:hover {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.sidebar a.active, .sidebar a:hover {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+    width: 200px;
+}
+
+.tabs {
+    display: none;
+}
+
+.tabs.active {
+    display: block;
+}
+
+.profile-form-container .form-section,
+.profile-form-container .profile-pic-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.address-list {
+    margin-top: 20px;
+}
+
+.address-item h4 {
+    margin: 0 0 5px 0;
+}
+
+.address-item p {
+    margin: 0;
+}
+
+.address-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.address-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.address-info {
+    flex-grow: 1;
+}
+
+.address-actions {
+    display: flex;
+    gap: 10px; /* Hiển thị các nút bên cạnh nhau */
+    align-items: center;
+}
+
+button.edit-address-btn,
+button.delete-address-btn,
+button.default-address-btn {
+    background-color: #fff; /* Khung không màu cam */
+    color: #ff5722;
+    border: 2px solid #ff5722;
+    padding: 10px 20px;
+    border-radius: 4px; /* Bo góc */
+    cursor: pointer;
+}
+
+.order-contents {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}

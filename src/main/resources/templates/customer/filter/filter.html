@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/category.css">
+    <link rel="stylesheet" href="/css/headerAll.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.js"></script>
+    <!--bs5 icon-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <script src="/js/headerJs.js"></script>
+    <script src="/js/filter.js"></script>
+    <title>Sản phẩm</title>
+</head>
+<body>
+<div th:include="header-all::body"></div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <!-- Sidebar filter -->
+        <div class="col-md-3">
+            <div class="filter-box">
+                <h4>BỘ LỌC</h4>
+                <form>
+                    <div class="filter-group">
+                        <h5>Chất liệu</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="materialLeather">
+                            <label class="form-check-label" for="materialLeather">Da</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="materialPaper">
+                            <label class="form-check-label" for="materialPaper">Giấy</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="materialCowLeather">
+                            <label class="form-check-label" for="materialCowLeather">Da bò</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="materialSyntheticLeather">
+                            <label class="form-check-label" for="materialSyntheticLeather">Da tổng hợp</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="materialFauxLeather">
+                            <label class="form-check-label" for="materialFauxLeather">Da nhân tạo</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="materialBuffaloLeather">
+                            <label class="form-check-label" for="materialBuffaloLeather">Da trâu</label>
+                        </div>
+                    </div>
+                    <!-- Thương hiệu -->
+                    <div class="filter-group">
+                        <h5>Thương hiệu</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="brandYSL">
+                            <label class="form-check-label" for="brandYSL">YSL</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="brandDior">
+                            <label class="form-check-label" for="brandDior">Dior</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="brandChanel">
+                            <label class="form-check-label" for="brandChanel">Chanel</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="brandBurberry">
+                            <label class="form-check-label" for="brandBurberry">Burberry</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="brandGucci">
+                            <label class="form-check-label" for="brandGucci">Gucci</label>
+                        </div>
+                    </div>
+                    <!-- Giá -->
+                    <div class="filter-group">
+                        <h5>Khoảng giá</h5>
+                        <div class="d-flex">
+                            <div class="form-group me-2 flex-fill">
+                                <label for="minPrice">Từ:</label>
+                                <input type="number" id="minPrice" class="form-control" placeholder="VND" min="0"
+                                       step="10000">
+                            </div>
+                            <div class="form-group flex-fill">
+                                <label for="maxPrice">Đến:</label>
+                                <input type="number" id="maxPrice" class="form-control" placeholder="VND" min="0"
+                                       step="10000">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-outline-dark flex-fill mx-1">Lọc</button>
+                        <button type="reset" class="btn btn-outline-light flex-fill mx-1 text-black">Huỷ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- SẢN PHẨM-->
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between">
+                <h4 id="categoryTitle">Tất cả sản phẩm (0 sản phẩm)</h4>
+            </div>
+            <!------------------------------------------------------>
+            <div id="searchResults" class="row mt-3"></div>
+                <!--                PHÀN TRANG-->
+                <nav>
+                    <div id="paginationContainer" class="d-flex justify-content-center text-center">
+                        <!-- Nút phân trang sẽ được tạo tự động -->
+                    </div>
+                </nav>
+        </div>
+    </div>
+</div>
+<div th:include="footer::body"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

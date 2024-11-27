@@ -1,0 +1,239 @@
+
+.spbc .price {
+    margin-top: 6px;
+}
+
+.product {
+    position: relative; /* Để dùng position:absolute bên trong .product */
+}
+
+.image-wrapper {
+    position: relative; /* Căn cứ để đặt biểu tượng */
+    display: inline-block;
+}
+
+.icon-heart {
+    position: absolute;
+    top: 0; /* Đặt khoảng cách từ trên xuống */
+    left: 221px; /* Đặt khoảng cách từ bên phảii vào */
+    /*background-color: white;*/
+    padding: 10px;
+    border-radius: 5%;
+
+}
+.heart {
+    color: black; /* Màu sắc cho trái tim */
+    font-size: 20px; /* Kích thước biểu tượng trái tim */
+}
+
+.image-card {
+    position: relative;
+    text-align: center;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.image-label {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    /*transform: translateX(-50%);*/
+    background-color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.card-title {
+    /*font-weight: bold;*/
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.btn-custom {
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.features-icon {
+    font-size: 2.5rem;
+    color: black;
+}
+
+.brands-section {
+    background-color: #222;
+    padding: 50px 0;
+    margin-left: calc(-50vw + 50%); /* Đảm bảo phần này không bị giới hạn */
+}
+
+.brand-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.brands-section img {
+    max-width: 100px;
+    height: 20px;
+    margin: 10px;
+}
+
+.features-section .col-md-3 {
+    text-align: center;
+    padding: 0;
+}
+
+.features-section h5 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.features-section p {
+    color: #555;
+}
+
+.product {
+    margin-bottom: 20px;
+    width: calc(20% - 20px); /* 5 products in a row, 20px gap */
+}
+
+.spbc {
+    gap: 20px;
+}
+
+.sp-banchay .price {
+    font-size: 16px;
+}
+
+.sp-banchay .price > s {
+    font-size: 12px;
+    color: #929191;
+    font-weight: bold;
+
+}
+#userInfo {
+    position: relative;
+}
+
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Bo góc biểu tượng */
+}
+
+.username {
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 8px 12px; /* Khoảng cách bên trong */
+    border-radius: 5px; /* Bo góc cho tên người dùng */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+.username:hover {
+    background-color: #e0f7fa; /* Màu nền khi hover */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Bo góc cho menu */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px; /* Khoảng cách bên trong mỗi mục */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px; /* Bo góc cho các mục */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+    text-align: center; /* Căn giữa chữ */
+}
+
+.user-dropdown .dropdown-menu {
+    left: -50px;
+}
+#load-more {
+    display: block !important;
+}
+/* CSS cho hiệu ứng mờ dần */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+.icon-heart {
+    cursor: pointer;
+
+}
+/* Ẩn nút "Add to wishlist" khi không hover */
+.product .add-to-wishlist-btn {
+    display: none;
+    position: absolute; /* Đặt vị trí nút ở vị trí thích hợp */
+    bottom: 10px; /* Đảm bảo nút xuất hiện dưới cùng của sản phẩm */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa nút */
+    padding: 8px 15px;
+    background-color: #000000;
+    /*border: black 1px solid;*/
+    color: #ffffff;
+    /*border: none;*/
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10; /* Đảm bảo nút không bị che khuất */
+    margin-bottom: 60px;
+}
+
+/* Hiển thị nút khi hover vào sản phẩm */
+.product:hover .add-to-wishlist-btn {
+    display: block; /* Hiển thị nút khi hover vào .product */
+    width: 100%;
+}
+
+/* Cải thiện kiểu dáng của nút khi hover */
+.product .add-to-wishlist-btn:hover {
+    background-color: black;
+    color: white;
+}
+.product {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, border 0.3s ease; /* Thêm hiệu ứng cho border-radius và border */
+    border: 1px solid transparent; /* Đặt viền mặc định là trong suốt */
+    border-radius: 10px; /* Bo góc */
+}
+.product .image-wrapper{
+    border-radius: 8px;
+}
+.product:hover {
+    transform: translateY(-10px); /* Nổi lên khi hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng shadow */
+    border-radius: 10px; /* Bo góc khi hover */
+}
+.price-and-name {
+    /*margin-left: 50px;*/
+    text-align: center;
+    margin-top: 24px;
+}
+
+.banner {
+    padding-top: 50px;
+    width: 100%;
+    margin-bottom: 30px;
+}

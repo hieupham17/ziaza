@@ -1,0 +1,13 @@
+.voucher-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.voucher-info {
+    flex-grow: 1;
+}
+
+.voucher-button {
+    margin-left: 20px;
+}

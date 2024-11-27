@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" lang="vi-VN" dir="LTR"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href=""/>
+    <title>Wishlist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/headerAll.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.js"></script>
+
+    <script src="/js/headerJs.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--icon bs-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <script src="/js/wishlist.js"></script>
+    <script src="/js/main.js"></script>
+    <style>
+
+        /* Sản phẩm */
+        .product {
+            position: relative;
+            width: 250px;
+            height: auto; /* Đảm bảo chiều cao tự động điều chỉnh */
+            padding: 10px;
+            overflow: hidden; /* Ẩn các phần tử tràn ra ngoài */
+            text-align: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hình ảnh sản phẩm */
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease; /* Hiệu ứng phóng to khi hover */
+        }
+
+        /* Nút xóa (delete icon) */
+        .delete-icon {
+            position: absolute;
+            top: 10px;
+            right: 18px; /* Căn chỉnh lại vị trí của nút xóa */
+            width: 32px; /* Chiều rộng cố định */
+            height: 32px; /* Chiều cao cố định, giống với chiều rộng để tạo hình tròn */
+            display: flex;
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Kích thước biểu tượng x trong nút xóa */
+        .delete-icon i {
+            color: black;
+            font-size: 18px; /* Kích thước biểu tượng */
+        }
+
+        /* Tên sản phẩm */
+        .product h3 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s ease; /* Hiệu ứng màu sắc khi hover vào tên */
+        }
+
+        /* Giá sản phẩm */
+        .product div:last-child {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #d9534f; /* Màu đỏ cho giá */
+            margin-top: 5px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div th:include="header-all::body"></div>
+<main>
+    <div>
+        <h2 class="title-page mt-5">Danh sách yêu thích</h2>
+        <div class="container mt-2">
+            <div class="row justify-content-start" id="wishlist-container">
+
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center text-center pagination">
+        <a href="#" class="prev">«</a>
+        <a href="#" class="page-num active">1</a>
+        <a href="#" class="page-num">2</a>
+        <a href="#" class="page-num">3</a>
+        <a href="#" class="page-num">4</a>
+        <a href="#" class="next">»</a>
+    </div>
+</main>
+<div th:include="footer::body"></div>
+</body>
+</html>

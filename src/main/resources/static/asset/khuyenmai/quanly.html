@@ -1,0 +1,55 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Thêm mới khuyến mại sản phẩm.</h2><br>
+    <div class="card-body" style="padding: 20px">
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <label for="inputTen" class="form-label">Tên khuyến mãi</label>
+                <input type="text" class="form-control" id="inputTen" ng-model="formAdd.ten">
+                <span class="text-danger"
+                      ng-show="error1.ten">Tên khuyến mãi phải từ 1 đến 100 ký tự.</span>
+            </div>
+            <div class="col-md-6 mt-2">
+                <label for="inputMoTa" class="form-label">Loại</label>
+                <select class="form-select" aria-label="Default select example" ng-model="formAdd.loai">
+                    <option disabled selected>Chọn loại</option>
+                    <option value="1">Vip</option>
+                    <option value="2">Pro Vip</option>
+                    <option value="3">Súp pơ víp</option>
+                </select>
+            </div>
+            <div class="col-md-6 mt-2">
+                <label for="inputTen" class="form-label">Giá trị</label>
+                <input type="number" class="form-control" id="inputGiaTri" ng-model="formAdd.giaTri"
+                       ng-init="form.giaTri = 0" min="1000" max="200000" placeholder="000">
+                <span class="text-danger" ng-show="error1.giaTri">Giá trị phải từ 1,000 đến 200,000.</span>
+            </div>
+            <div class="col-md-12 mt-2">
+                <label for="inputMoTa" class="form-label">Mô tả</label>
+                <textarea class="form-control" placeholder="Mô tả tại đây" ng-model="formAdd.moTa"
+                          id="floatingTextarea2" style="height: 100px"></textarea>
+                <span class="text-danger" ng-show="error1.moTa">Mô tả phải từ 1 đến 100 ký tự.</span>
+            </div>
+            <div class="col-md-6 mt-2">
+                <label for="inputNgayTao" class="form-label">Ngày bắt đầu</label>
+                <input type="date" class="form-control" id="inputNgayTao" ng-model="formAdd.ngayBatDau">
+                <span class="text-danger" ng-show="error1.ngayBatDau">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
+            </div>
+            <div class="col-md-6 mt-2">
+                <label for="inputNgayTao" class="form-label">Ngày kết thức</label>
+                <input type="date" class="form-control" id="inputNgayTao1" ng-model="formAdd.ngayKetThuc">
+                <span class="text-danger" ng-show="error1.ngayKetThuc">Ngày kết thúc không được trống or < hơn ngày bắt đầu.</span>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-success" type="button" ng-click="create()">
+                <i class="fas fa-plus"></i> Thêm mới
+            </button>
+            <button type="button" class="btn btn-secondary" ng-click="resetAdd()">
+                <i class="fas fa-redo"></i> Reset
+            </button>
+        </div>
+        <br><br>
+    </div>
+</div>

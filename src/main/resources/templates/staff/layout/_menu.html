@@ -1,0 +1,372 @@
+<div id="layoutSidenav_nav" th:fragment="body" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">CHUNG</div>
+                <!-- Quản lý người dùng -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages16" aria-expanded="false" aria-controls="collapsePages16">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                    Tống quan
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages16" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/tongquan"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Tổng quan
+                        </a>
+                    </nav>
+                </div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages17" aria-expanded="false" aria-controls="collapsePages17">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                    Bán hàng tại quầy
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages17" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/bhtq"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Bán hàng
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="sb-sidenav-menu-heading">QUẢN LÝ</div>
+                <!-- Quản trị hệ thông -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                   aria-expanded="false" aria-controls="collapsePages">
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                    Quản trị hệ thống
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                        <a class="nav-link" href="#!/taikhoan">
+                            Quản lý người dùng
+                        </a>
+                        <a class="nav-link" href="#!/group">
+                            Quản lý phân quyền
+                        </a>
+                    </nav>
+                </div>
+                <!-- Quản lý Danh mục -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages2" aria-expanded="false" aria-controls="collapsePages2">
+                    <div class="sb-nav-link-icon"><i class="fas fa-th-list"></i></div>
+                    Danh mục
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/listdanhmuc"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Dạnh mục sản phẩm
+                        </a>
+                        <!--                        <a class="nav-link collapsed" href="#!/quanlydanhmuc"-->
+                        <!--                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"-->
+                        <!--                           aria-controls="pagesCollapseAttributeManagement">-->
+                        <!--                            Quản lý danh mục-->
+                        <!--                        </a>-->
+                    </nav>
+                </div>
+                <!-- Quản lý thương hiệu -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages3" aria-expanded="false" aria-controls="collapsePages3">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tags"></i></div>
+                    Thương hiệu
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages3" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/listthuonghieu"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Thương hiệu sản phẩm
+                        </a>
+                        <!--                        <a class="nav-link collapsed" href="#!/quanlythuonghieu"-->
+                        <!--                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"-->
+                        <!--                           aria-controls="pagesCollapseAttributeManagement">-->
+                        <!--                            Quản lý thương hiệu-->
+                        <!--                        </a>-->
+                    </nav>
+                </div>
+                <!-- Quản lý thuộc tính -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages4" aria-expanded="false" aria-controls="collapsePages4">
+                    <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
+                    Thuộc tính
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages4" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/mausac"
+                           data-bs-target="#pagesCollapseMauSac" aria-expanded="false"
+                           aria-controls="pagesCollapseMauSac">
+                            Quản lý màu sắc
+                        </a>
+                        <a class="nav-link collapsed" href="#!/chatlieu"
+                           data-bs-target="#pagesCollapseChatLieu" aria-expanded="false"
+                           aria-controls="pagesCollapseChatLieu">
+                            Quản lý chất liệu
+                        </a>
+                        <a class="nav-link collapsed" href="#!/size"
+                           data-bs-target="#pagesCollapseSize" aria-expanded="false"
+                           aria-controls="pagesCollapseSize">
+                            Quản lý size
+                        </a>
+                    </nav>
+                </div>
+                <!-- Quản lý sản phẩm -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages5" aria-expanded="false" aria-controls="collapsePages5">
+                    <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                    Sản phẩm
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages5" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/sanpham"
+                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseAttributeManagement">
+                            Quản lý sản phẩm
+                        </a>
+                        <a class="nav-link collapsed" href="#!/listsanpham"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Danh sách sản phẩm
+                        </a>
+                        <a class="nav-link collapsed" href="#!/listsanphaman"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Danh sách sản phẩm ẩn
+                        </a>
+                    </nav>
+                </div>
+                <!-- Quản lý đơn hàng -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages7" aria-expanded="false" aria-controls="collapsePages7">
+                    <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                    Đơn hàng
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages7" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link" ng-href="#!/hoadon?trangThai=0" ng-click="getHoaDonsByTrangThai(0)">
+                            Chờ xác nhận
+                        </a>
+                        <a class="nav-link" ng-href="#!/hoadon?trangThai=2" ng-click="getHoaDonsByTrangThai(2)">
+                            Chờ giao hàng
+                        </a>
+                        <a class="nav-link" ng-href="#!/hoadon?trangThai=3" ng-click="getHoaDonsByTrangThai(3)">
+                            Đang vận chuyển
+                        </a>
+                        <a class="nav-link" ng-href="#!/hoadon?trangThai=4" ng-click="getHoaDonsByTrangThai(4)">
+                            Đã giao
+                        </a>
+                        <a class="nav-link" ng-href="#!/hoadon?trangThai=5" ng-click="getHoaDonsByTrangThai(5)">
+                            Đã hủy
+                        </a>
+                    </nav>
+                </div>
+                <!-- Quản lý khuyến mãi -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages8" aria-expanded="false" aria-controls="collapsePages8">
+                    <div class="sb-nav-link-icon"><i class="fas fa-percent"></i></div>
+                    Khuyến mãi
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages8" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/listkhuyenmai"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Danh sách khuyến mãi
+                        </a>
+                        <a class="nav-link collapsed" href="#!/danhsachspkm"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Danh sách sản phẩm khuyến mãi
+                        </a>
+                    </nav>
+                </div>
+                <!-- Quản lý hỗ trợ -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages9" aria-expanded="false" aria-controls="collapsePages9">
+                    <div class="sb-nav-link-icon"><i class="fas fa-headset"></i></div>
+                    Hỗ trợ
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages9" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/yeucaudoitra/DOI_HANG"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Đổi hàng
+                        </a>
+                        <a class="nav-link collapsed" href="#!/yeucaudoitra/TRA_HANG"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Trả hàng
+                        </a>
+                        <a class="nav-link collapsed" href="#!/"
+                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseAttributeManagement">
+                            Trả lời hỗ trợ
+                        </a>
+                    </nav>
+                </div>
+                <!-- Quản lý Blog -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages10" aria-expanded="false" aria-controls="collapsePages10">
+                    <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
+                    Blog
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages10" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#!/blog"
+                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseAttributeManagement">
+                            Blog
+                        </a>
+                        <a class="nav-link collapsed" href="#"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Bình luận chờ
+                        </a>
+                        <a class="nav-link collapsed" href="#"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Trả lời bình luận
+                        </a>
+                    </nav>
+                </div>
+                <!-- Quản lý đánh giá -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages11" aria-expanded="false" aria-controls="collapsePages11">
+                    <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
+                    Đánh giá
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages11" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Đánh giá chờ
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseAttributeManagement">
+                            Danh sách đánh giá
+                        </a>
+                    </nav>
+                </div>
+                <!-- Khác -->
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                   data-bs-target="#collapsePages15" aria-expanded="false" aria-controls="collapsePages15">
+                    <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
+                    Khác
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePages15" aria-labelledby="headingTwo"
+                     data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">
+                        <a class="nav-link collapsed" href="#"
+                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseProductManagement">
+                            Phương thức vận chuyển
+                        </a>
+                        <a class="nav-link collapsed" href="#"
+                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"
+                           aria-controls="pagesCollapseAttributeManagement">
+                            Phương thức thanh toán
+                        </a>
+                    </nav>
+                </div>
+                <br>
+                <br>
+                <!-- Thống kê -->
+                <!--                <div class="sb-sidenav-menu-heading">THỐNG KÊ</div>-->
+                <!--                &lt;!&ndash; Thống kê sản phẩm &ndash;&gt;-->
+                <!--                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"-->
+                <!--                   data-bs-target="#collapsePages12" aria-expanded="false" aria-controls="collapsePages12">-->
+                <!--                    <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>-->
+                <!--                    Sản phầm-->
+                <!--                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>-->
+                <!--                </a>-->
+                <!--                <div class="collapse" id="collapsePages12" aria-labelledby="headingTwo"-->
+                <!--                     data-bs-parent="#sidenavAccordion">-->
+                <!--                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">-->
+                <!--                        <a class="nav-link collapsed" href="#"-->
+                <!--                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"-->
+                <!--                           aria-controls="pagesCollapseProductManagement">-->
+                <!--                            Danh sách bán chạy-->
+                <!--                        </a>-->
+                <!--                        <a class="nav-link collapsed" href="#"-->
+                <!--                           data-bs-target="#pagesCollapseAttributeManagement" aria-expanded="false"-->
+                <!--                           aria-controls="pagesCollapseAttributeManagement">-->
+                <!--                            Danh sách tồn kho-->
+                <!--                        </a>-->
+                <!--                    </nav>-->
+                <!--                </div>-->
+                <!--                &lt;!&ndash; Doanh thu sản phẩm &ndash;&gt;-->
+                <!--                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"-->
+                <!--                   data-bs-target="#collapsePages13" aria-expanded="false" aria-controls="collapsePages13">-->
+                <!--                    <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>-->
+                <!--                    Doanh thu-->
+                <!--                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>-->
+                <!--                </a>-->
+                <!--                <div class="collapse" id="collapsePages13" aria-labelledby="headingTwo"-->
+                <!--                     data-bs-parent="#sidenavAccordion">-->
+                <!--                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">-->
+                <!--                        <a class="nav-link collapsed" href="#"-->
+                <!--                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"-->
+                <!--                           aria-controls="pagesCollapseProductManagement">-->
+                <!--                            Danh sách doanh thu-->
+                <!--                        </a>-->
+                <!--                    </nav>-->
+                <!--                </div>-->
+                <!--                &lt;!&ndash; Đơn hàng sản phẩm &ndash;&gt;-->
+                <!--                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"-->
+                <!--                   data-bs-target="#collapsePages14" aria-expanded="false" aria-controls="collapsePages14">-->
+                <!--                    <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>-->
+                <!--                    Đơn hàng-->
+                <!--                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>-->
+                <!--                </a>-->
+                <!--                <div class="collapse" id="collapsePages14" aria-labelledby="headingTwo"-->
+                <!--                     data-bs-parent="#sidenavAccordion">-->
+                <!--                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages1">-->
+                <!--                        <a class="nav-link collapsed" href="#"-->
+                <!--                           data-bs-target="#pagesCollapseProductManagement" aria-expanded="false"-->
+                <!--                           aria-controls="pagesCollapseProductManagement">-->
+                <!--                            Danh sách đơn hàng-->
+                <!--                        </a>-->
+                <!--                    </nav>-->
+                <!--                </div>-->
+            </div>
+            <br>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Đăng nhập với tư cách:</div>
+            Admin Ziaza Store
+        </div>
+    </nav>
+</div>

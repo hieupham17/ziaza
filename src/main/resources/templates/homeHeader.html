@@ -1,0 +1,58 @@
+<div th:fragment="body">
+    <header>
+        <div class="container-fluid">
+            <div class="header_inner">
+                <div id="toggle_nav" class="nav_btn_mb">
+                    <span></span>
+                </div>
+                <div class="header_logo">
+                    <a href="/"><img src="../images/monnica.png" alt=""></a>
+                </div>
+                <nav class="header_nav">
+                    <ul class="header_menu">
+                        <li><a href="">NAM</a></li>
+                        <li><a href="">Nữ</a></li>
+                        <li><a href="">Trẻ em</a></li>
+                        <li><a href="">Thương hiệu</a></li>
+                    </ul>
+                </nav>
+                <div class="header_icon">
+                    <div id="userInfo" style="display: none;">
+    <span class="icon_card" onclick="window.location.href='/cart'">
+        <span class="tooltip">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="size-6 svg-icon--medium">
+                <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                />
+            </svg>
+            <small class="tooltip__content">Cart</small>
+        </span>
+        <span class="count_nb">1</span>
+    </span>
+                        <img src="../images/user-icon.png" alt="User Icon" class="user-icon"/>
+                        <span id="usernameDisplay" class="username" onclick="toggleDropdown()">Tên người dùng</span>
+                        <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                            <a href="/profile">Xem thông tin</a>
+                            <a href="/v1/auth/change-password">Đổi mật khẩu</a>
+                            <a href="#" onclick="logout()">Đăng xuất</a>
+                        </div>
+                    </div>
+
+                    <div id="authButtons">
+                        <a href="/v1/auth/login">
+                            <button type="button" class="btn btn-dark">Đăng nhập</button>
+                        </a>
+                        <a href="/v1/auth/register">
+                            <button type="button" class="btn btn-outline-dark">Đăng ký</button>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </header>
+</div>

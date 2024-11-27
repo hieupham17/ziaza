@@ -1,0 +1,39 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Thêm mới thương hiệu sản phẩm.</h2><br>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Thương hiệu</li>
+            <li class="breadcrumb-item"><a href="#!/quanlythuonghieu">Quản lý thương hiệu</a></li>
+        </ol>
+    </nav>
+
+    <div class="card-body" style="padding: 20px">
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <label for="inputTen" class="form-label">Tên thương hiệu</label>
+                <input type="text" class="form-control" id="inputTen" ng-model="formAdd.ten">
+                <span class="text-danger" ng-show="error1.ten">Tên thương hiệu phải từ 1 đến 100 ký tự.</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <label for="inputMoTa" class="form-label">Mô tả</label>
+                <textarea class="form-control" placeholder="Mô tả tại đây" ng-model="formAdd.moTa"
+                          id="floatingTextarea2" style="height: 100px"></textarea>
+                <span class="text-danger" ng-show="error1.moTa">Mô tả phải từ 1 đến 100 ký tự.</span>
+            </div>
+        </div>
+        <br><br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-success" type="button" ng-click="create()">
+                <i class="fas fa-plus"></i> Thêm mới
+            </button>
+            <button type="button" class="btn btn-secondary" ng-click="resetAdd()">
+                <i class="fas fa-redo"></i> Reset
+            </button>
+        </div>
+        <br><br>
+    </div>
+
+</div>

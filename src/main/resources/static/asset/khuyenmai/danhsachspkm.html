@@ -1,0 +1,22 @@
+<div ng-controller="danhsachspkm-ctrl">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá cũ</th>
+            <th>Khuyến mãi</th>
+            <th>Giá trị khuyến mãi</th>
+            <th>Giá mới</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in products">
+            <td>{{ product.ten }}</td>
+            <td>{{ product.gia | currency }}</td>
+            <td>{{ product.promotionName }}</td>
+            <td>{{ product.discountValue | currency }}</td>
+            <td>{{ product.newPrice | currency }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

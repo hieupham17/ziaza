@@ -1,0 +1,183 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Danh sách sản phẩm ẩn</h2><br>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+            <li class="breadcrumb-item active" aria-current="page">Khác</li>
+            <li class="breadcrumb-item"><a href="#!/listsanphaman">Sản phẩm ẩn</a></li>
+        </ol>
+    </nav>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-table me-1"></i>
+                Danh sách sản phẩm ẩn
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+                <input type="text" ng-model="searchText" placeholder="Tìm kiếm..." class="form-control me-2"/>
+                <select ng-model="filters.idChatLieu" class="form-control">
+                    <option value="" selected>Chất liệu</option>
+                    <option ng-repeat="c in chatlieu" ng-value="c.id">{{c.ten}}</option>
+                </select>
+                <select ng-model="filters.idDanhMuc" class="form-control">
+                    <option value="" selected>Danh mục</option>
+                    <option ng-repeat="c in danhmuc" ng-value="c.id">{{c.ten}}</option>
+                </select>
+                <select ng-model="filters.idThuongHieu" class="form-control">
+                    <option value="" selected>Thương hiệu</option>
+                    <option ng-repeat="c in thuonghieu" ng-value="c.id">{{c.ten}}</option>
+                </select>
+                <select class="form-select" ng-model="filters.xuatXu">
+                    <option value="" selected>Xuất xứ</option>
+                    <option value="Anh">Anh</option>
+                    <option value="Mĩ">Mĩ</option>
+                    <option value="Trung Quốc">Trung Quốc</option>
+                </select>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã SP</th>
+                    <th>Tên</th>
+                    <th>Mô tả</th>
+                    <th>Giá</th>
+                    <th>Ảnh</th>
+                    <th>Trạng thái</th>
+                    <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in pager2.items | filter: searchText | filter: filterByAttributes">
+                    <td>{{$index + 1 + (pager2.page * pager2.size)}}</td>
+                    <td>{{item.ma}}</td>
+                    <td>{{item.ten}}</td>
+                    <td>{{item.moTa}}</td>
+                    <td>{{item.gia}}</td>
+                    <td>
+                        <img ng-src="/images/{{item.anh}}" alt="Ảnh sản phẩm"
+                             style="width: 50px; height: 50px; object-fit: cover;"/>
+                    </td>
+                    <td>
+                        <div class="badge"
+                             ng-class="{'bg-success': item.trangThai === 1, 'bg-danger': item.trangThai === 2, 'bg-secondary': item.trangThai === 3}">
+                            <span ng-if="item.trangThai === 1">Active</span>
+                            <span ng-if="item.trangThai === 3">Locked</span>
+                            <span ng-if="item.trangThai === 2">Khác</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-xs">
+                            <button class="btn btn-link" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" ng-click="edit(item)">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                            <button class="btn btn-link" type="button" ng-click="updateStatus1(item)">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="panel-footer d-flex justify-content-between align-items-center">
+                <div class="me-auto">
+                    <label for="pageSizeSelect" class="me-2">Hiển thị:</label>
+                    <select id="pageSizeSelect" ng-model="pager2.size" ng-change="pager2.updateItems()"
+                            class="form-select d-inline-block w-auto">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button ng-click="pager2.first()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-left"></i>
+                    </button>
+                    <button ng-click="pager2.prev()" class="btn btn-primary">
+                        <i class="fas fa-angle-left"></i>
+                    </button>
+                    <button class="btn btn-success">{{pager2.page + 1}} of {{pager2.count}}</button>
+                    <button ng-click="pager2.next()" class="btn btn-primary">
+                        <i class="fas fa-angle-right"></i>
+                    </button>
+                    <button ng-click="pager2.last()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông tin sản phẩm: {{form.ten}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid px-4">
+                        <div class="row">
+                            <div class="col-md-4 mt-2">
+                                <div class="mb-3">
+                                    <input type="file" id="anh" class="form-control" accept="image/*"
+                                           onchange="angular.element(this).scope().onFileChange(event)"
+                                    style="display: none">
+                                </div>
+                                <div class="image-preview d-flex justify-content-center align-items-center p-2"
+                                     style="border: 1px dashed #ddd; height: 200px;">
+                                    <!-- Hiển thị ảnh cũ hoặc ảnh mới nếu có -->
+                                    <img ng-if="form.anh.preview" ng-src="{{ form.anh.preview }}" alt="Ảnh sản phẩm"
+                                         class="img-thumbnail" style="max-height: 100%; object-fit: cover;"/>
+                                    <img ng-if="!form.anh.preview && form.anh" ng-src="/images/{{ form.anh }}" alt="Ảnh sản phẩm"
+                                         class="img-thumbnail" style="max-height: 100%; object-fit: cover;"/>
+                                </div>
+                            </div>
+                            <div class="col-md-8 mt-2">
+                                <!-- Thông tin khác của sản phẩm -->
+                                <label>Tên sản phẩm</label>
+                                <input type="text" class="form-control" ng-model="form.ten">
+                                <label>Giá sản phẩm</label>
+                                <input type="number" class="form-control" ng-model="form.gia">
+                                <label>Mô tả sản phẩm</label>
+                                <textarea class="form-control" ng-model="form.moTa"></textarea>
+                                <label>Thương hiệu sản phẩm</label>
+                                <select ng-model="form.idThuongHieu" class="form-control">
+                                    <option ng-repeat="c in thuonghieu" ng-value="c.id">{{c.ten}}</option>
+                                </select>
+                                <label>Danh mục sản phẩm</label>
+                                <select ng-model="form.idDanhMuc" class="form-control">
+                                    <option ng-repeat="c in danhmuc" ng-value="c.id">{{c.ten}}</option>
+                                </select>
+                                <label>Chất liệu sản phẩm</label>
+                                <select ng-model="form.idChatLieu" class="form-control">
+                                    <option ng-repeat="c in chatlieu" ng-value="c.id">{{c.ten}}</option>
+                                </select>
+                                <label>Xuất xứ</label>
+                                <select class="form-select" ng-model="form.xuatXu">
+                                    <option value="" disabled selected>Xuất xứ sản phẩm</option>
+                                    <option value="Anh" ng-selected="form.xuatXu === 'Anh'">Anh</option>
+                                    <option value="Mĩ" ng-selected="form.xuatXu === 'Mĩ'">Mĩ</option>
+                                    <option value="Trung Quốc" ng-selected="form.xuatXu === 'Trung Quốc'">Trung Quốc</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

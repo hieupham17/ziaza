@@ -1,0 +1,97 @@
+#message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050; /* Để nó hiển thị trên tất cả các phần khác */
+}
+
+/* Cài đặt lại kiểu cho tất cả các phần tử */
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Cài đặt nền cho body */
+body {
+    background: linear-gradient(45deg, #8e2de2, #4a00e0);
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Chiều cao tối thiểu */
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+/* Thiết lập cho thẻ card */
+.card {
+    border-radius: 15px; /* Bo góc cho thẻ card */
+    overflow: hidden; /* Giúp bo góc tốt hơn */
+}
+
+/* Padding cho phần thân card */
+.card-body {
+    padding: 2.5rem; /* Tăng khoảng cách bên trong */
+}
+
+/* Cài đặt tiêu đề h1 */
+h1 {
+    font-family: 'Poppins', sans-serif; /* Đảm bảo font phù hợp */
+    font-weight: 700; /* Đậm chữ */
+    color: #4a00e0; /* Màu chữ cho tiêu đề */
+    margin-bottom: 1.5rem; /* Khoảng cách dưới tiêu đề */
+    position: relative;
+}
+
+/* Hiệu ứng cho tiêu đề */
+h1::after {
+    content: '';
+    position: absolute;
+    height: 4px; /* Chiều cao đường viền */
+    width: 50px; /* Chiều rộng đường viền */
+    background: linear-gradient(45deg, #8e2de2, #4a00e0); /* Màu sắc cho đường viền */
+    bottom: -10px; /* Vị trí dưới tiêu đề */
+    left: 0;
+    border-radius: 8px; /* Bo góc cho đường viền */
+}
+
+/* Thiết lập cho ô input */
+.form-control {
+    border: 1px solid #e0e0e0; /* Đường viền nhạt */
+    border-radius: 8px; /* Bo góc cho ô input */
+    padding: 10px; /* Tăng khoảng cách bên trong ô input */
+    transition: border-color 0.3s; /* Hiệu ứng chuyển tiếp cho đường viền */
+}
+
+/* Hiệu ứng khi ô input được chọn */
+.form-control:focus {
+    border-color: #8e2de2; /* Đổi màu đường viền khi ô input được chọn */
+    box-shadow: 0 0 5px rgba(142, 45, 226, 0.5); /* Hiệu ứng bóng nhẹ */
+}
+
+/* Thiết lập cho nút đăng ký */
+.btn-primary {
+    background: linear-gradient(to right, #8e2de2, #4a00e0); /* Nền cho nút */
+    border: none; /* Bỏ đường viền */
+    border-radius: 50px; /* Bo góc nút */
+    padding: 10px 20px; /* Tăng khoảng cách bên trong */
+    font-weight: bold; /* Chữ in đậm */
+    transition: background 0.3s; /* Hiệu ứng chuyển tiếp cho màu nền */
+}
+
+/* Hiệu ứng hover cho nút */
+.btn-primary:hover {
+    background: linear-gradient(to left, #8e2de2, #4a00e0); /* Đổi màu khi hover */
+}
+
+/* Kích thước chữ cho thông báo lỗi */
+.invalid-feedback {
+    font-size: 0.85rem; /* Kích thước chữ nhỏ hơn */
+}
+
+/* Thêm khoảng cách cho các nút */
+.d-flex button {
+    margin-top: 10px; /* Tăng khoảng cách giữa các nút */
+}

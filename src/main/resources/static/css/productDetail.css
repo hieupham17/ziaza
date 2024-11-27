@@ -1,0 +1,110 @@
+
+/* Căn giữa thông báo ở giữa màn hình */
+#tokenWarning {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn giữa hoàn hảo */
+    width: 80%;  /* Kích thước của thông báo */
+    max-width: 600px;  /* Đảm bảo thông báo không quá rộng */
+    z-index: 1050; /* Đảm bảo nó hiển thị trên các phần tử khác */
+    display: none;  /* Ẩn thông báo theo mặc định */
+}
+
+/* Định dạng nút đóng thông báo */
+#closeTokenWarning {
+    background-color: #dc3545;  /* Màu đỏ */
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+#closeTokenWarning:hover {
+    background-color: #c82333;  /* Màu đỏ đậm khi hover */
+}
+
+/* Modal */
+.modal {
+    display: none; /* Ban đầu ẩn modal */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Nền mờ */
+    width: 600px; /* Chiều ngang modal là 600px */
+    height: 300px; /* Chiều dọc modal là 300px */
+    padding: 30px;
+    border-radius: 15px; /* Tăng độ cong của các góc */
+    z-index: 1000;
+}
+
+
+/* Nội dung Modal */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 100%; /* Chiều cao của nội dung modal sẽ bằng chiều cao của modal */
+    overflow: auto; /* Thêm thanh cuộn nếu nội dung vượt quá chiều cao */
+}
+
+
+/* Tiêu đề và thông báo trong modal */
+.modal-content h3 {
+    margin-bottom: 15px;
+    font-size: 20px; /* Tăng kích thước tiêu đề */
+    color: #333; /* Màu tiêu đề */
+}
+
+.modal-content p {
+    margin-bottom: 30px; /* Tăng khoảng cách giữa nội dung và các nút */
+    font-size: 16px;
+    color: #555; /* Màu chữ nhạt hơn */
+}
+
+/* Sử dụng Flexbox để các nút nằm cùng một hàng */
+.modal-actions {
+    display: flex;
+    justify-content: center; /* Canh giữa các nút */
+    gap: 20px; /* Khoảng cách giữa các nút */
+}
+
+/* Nút Xác nhận */
+/* Nút Xác nhận */
+.btn-confirm {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 8px 20px; /* Giảm kích thước nút */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px; /* Giảm kích thước chữ */
+    min-width: 100px; /* Đảm bảo nút đủ rộng */
+}
+
+/* Nút Hủy */
+.btn-cancel {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 20px; /* Giảm kích thước nút */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px; /* Giảm kích thước chữ */
+    min-width: 100px; /* Đảm bảo nút đủ rộng */
+}
+/* Sử dụng Flexbox để các nút nằm cùng một hàng */
+.modal-actions {
+    display: flex;
+    justify-content: center; /* Canh giữa các nút */
+    gap: 15px; /* Khoảng cách giữa các nút */
+    margin-top: 30px; /* Di chuyển các nút xuống dưới */
+}
+
+
+/* Hiệu ứng khi hover lên các nút */
+.btn-confirm:hover, .btn-cancel:hover {
+    opacity: 0.8;
+}

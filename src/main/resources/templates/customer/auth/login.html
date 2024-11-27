@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi-VN" dir="LTR" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href=""/>
+    <title>Đăng nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/headerAll.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.js"></script>
+
+    <script src="/js/headerJs.js"></script>
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/login.js"></script>
+</head>
+<body>
+
+<div th:include="header-all::body"></div>
+<main>
+    <div class="wrap_login">
+        <div class="register-form__wrapper">
+            <h2>Đăng nhập</h2>
+            <div class="social_form">
+                <a href="">
+                    <img src="/images/logos_facebook.svg" alt=""> Continue with Facebook
+                </a>
+                <a href="">
+                    <img src="/images/flat-color-icons_google.svg" alt=""> Continue with Google
+                </a>
+            </div>
+            <div class="or_span"><span>or</span></div>
+            <form method="post" action="/account" id="create_customer" accept-charset="UTF-8">
+                <input type="text" id="username" name="customer[username]" placeholder="Username" class="form-field" required>
+                <input type="password" id="password" name="customer[password]" placeholder="Password" class="form-field" required>
+                <div class="mb-15 form_text">
+                    <div class="check_custom">
+                        <input type="checkbox" id="remember" class="styled-checkbox">
+                        <label for="remember">Ghi nhớ mật khẩu</label>
+                    </div>
+                    <a href="/v1/auth/forgot-password">Quên mật khẩu?</a>
+                </div>
+                <button type="button" id="loginButton" class="button button--primary">
+                    Login
+                </button>
+                <div id="message"></div>
+            </form>
+
+        </div>
+        <div class="register-form__wrapper">
+            <h2>Quyền  lợi thành viên</h2>
+            <p class="register-form__description">
+                Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.
+            </p>
+            <button type="button" class="button button--primary" onclick="location.href='/v1/auth/register'">Đăng ký</button>
+        </div>
+    </div>
+</main>
+<div th:include="footer::body"></div>
+</body>
+</html>

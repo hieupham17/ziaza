@@ -1,0 +1,110 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Hình ảnh sản phẩm: {{selectedImagesTen}}</h2><br>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Sản phẩm</li>
+            <li class="breadcrumb-item"><a href="#!/spct">Hình ảnh sản phẩm</a></li>
+        </ol>
+    </nav>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-table me-1"></i>
+                Danh sách hình ảnh sản phẩm
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end" data-bs-toggle="modal"
+                 data-bs-target="#addModal">
+                <button class="btn btn-primary" type="button">Thêm</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="image-gallery">
+                    <div class="image-item" ng-repeat="item in pager.items | filter: searchText">
+                        <div class="image-container" ng-click="showImageModal(item)">
+                            <img ng-src="/images/{{item.anh}}" alt="Ảnh sản phẩm" class="image-thumbnail"/>
+                            <!-- Trạng thái trên ảnh -->
+                            <div class="image-status"
+                                 ng-class="{'bg-success': item.trangThai === 1, 'bg-danger': item.trangThai === 2}">
+                                <span ng-if="item.trangThai === 1">Active</span>
+                                <span ng-if="item.trangThai === 2">Locked</span>
+                            </div>
+                        </div>
+                        <div class="image-caption">
+                            <span>{{item.tenAnh}}</span>
+                        </div>
+                        <div class="image-actions">
+                            <button class="btn btn-warning btn-sm" ng-click="updateStatus2(item)"><i
+                                    class="fas fa-times"></i></button>
+                            <button class="btn btn-danger btn-sm" ng-click="deleteImage(item)"><i
+                                    class="fas fa-trash"></i></i></button>
+                            <button class="btn btn-success btn-sm" ng-click="updateStatus1(item)"><i
+                                    class="fas fa-check"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal hiển thị ảnh lớn -->
+            <div class="image-modal" ng-show="isImageModalVisible" ng-click="closeImageModal()">
+                <img ng-src="/images/{{selectedImage.anh}}" alt="Ảnh phóng to" class="image-modal-content"/>
+            </div>
+
+            <div class="panel-footer d-flex justify-content-between align-items-center">
+                <div class="me-auto">
+                    <label for="pageSizeSelect" class="me-2">Hiển thị:</label>
+                    <select id="pageSizeSelect" ng-model="pager.size" ng-change="pager.updateItems()"
+                            class="form-select d-inline-block w-auto">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button ng-click="pager.first()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-left"></i>
+                    </button>
+                    <button ng-click="pager.prev()" class="btn btn-primary">
+                        <i class="fas fa-angle-left"></i>
+                    </button>
+                    <button class="btn btn-success">{{pager.page + 1}} of {{pager.count}}</button>
+                    <button ng-click="pager.next()" class="btn btn-primary">
+                        <i class="fas fa-angle-right"></i>
+                    </button>
+                    <button ng-click="pager.last()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Thêm hình ảnh -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Thêm hình ảnh sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form ng-submit="uploadImages()">
+                        <div class="col-md-12 mt-2">
+                            <input type="file" class="form-control" id="profileImage3" accept="image/*" multiple
+                                   onchange="updateImagePreview3()">
+                            <div id="previewContainer" class="mt-2"></div>
+                            <input type="text" class="form-control" id="imagePath3" ng-model="image.anh" readonly
+                                   style="display: none;">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Thêm hình ảnh</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

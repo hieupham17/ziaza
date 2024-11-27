@@ -1,0 +1,36 @@
+<style>
+    body {
+        display: flex;
+        height: 100vh;
+    }
+
+</style>
+<div id="user-list" class="border-right">
+    <h3>Người Dùng</h3>
+    <div id="users">
+        <!-- Users will be populated here -->
+        <div class="user-item" data-user-id="1">
+            <img src="https://via.placeholder.com/40" alt="User 1" class="user-photo">
+            <span>Người dùng 1 (2 tin nhắn mới)</span>
+        </div>
+        <div class="user-item" data-user-id="2">
+            <img src="https://via.placeholder.com/40" alt="User 2" class="user-photo">
+            <span>Người dùng 2 (1 tin nhắn mới)</span>
+        </div>
+        <div class="user-item" data-user-id="3">
+            <img src="https://via.placeholder.com/40" alt="User 3" class="user-photo">
+            <span>Người dùng 3 (0 tin nhắn mới)</span>
+        </div>
+        <!-- Add more users as needed -->
+    </div>
+</div>
+
+<div id="chat-container" class="p-3">
+    <h3>Trả Lời Hỗ Trợ</h3>
+    <div id="chat-box">
+        <!-- Chat messages will be displayed here -->
+    </div>
+
+    <input type="text" id="admin-response" class="form-control" placeholder="Nhập câu trả lời cho người dùng...">
+    <button id="send-response-btn" class="btn btn-success mt-2">Gửi Trả Lời</button>
+</div>

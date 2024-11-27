@@ -1,0 +1,137 @@
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Quản lý đơn hàng đang vận chuyển</h2><br>
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-table me-1"></i>
+                Danh sách đơn hàng đang vận chuyển
+            </div>
+        </div>
+        <div class="card-body">
+            <input type="text" ng-model="searchText3" placeholder="Tìm kiếm..." class="form-control mb-3"/>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã hóa đơn</th>
+                    <th>Người đặt hàng</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Tổng tiền</th>
+                    <th>Điểm sử dụng</th>
+                    <th>Chức năng</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in pager3.items | filter: searchText3">
+                    <td>{{$index + 1 + (pager0.page * pager0.size)}}</td>
+                    <td>{{item.ma}}</td>
+                    <td>{{item.userModel.profile.hoVaTen}}</td>
+                    <td>{{item.ngayDatHang}}</td>
+                    <td>{{item.tongTien}}</td>
+                    <td>{{item.diemSuDung}}</td>
+                    <td>
+                        <div class="btn-group btn-group-xs">
+                            <button class="btn btn-link" type="button" ng-click="update4(item)">
+                                <i class="fas fa-check icon-check"></i>
+                            </button>
+                            <button class="btn btn-link" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" ng-click="edit3(item)">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                            <button class="btn btn-link" type="button" ng-click="selectInvoice(item)">
+                                <i class="fas fa-list-alt"></i>
+                            </button>
+                            <button class="btn btn-link" type="button" ng-click="update5(item)">
+                                <i class="fas fa-times icon-close"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="panel-footer d-flex justify-content-between align-items-center">
+                <!-- Bộ chọn số lượng dữ liệu hiển thị -->
+                <div class="me-auto">
+                    <label for="pageSizeSelect" class="me-2">Hiển thị:</label>
+                    <select id="pageSizeSelect" ng-model="pager3.size" ng-change="pager3.updateItems()" class="form-select d-inline-block w-auto">
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+
+                <!-- Điều hướng trang -->
+                <div class="text-center">
+                    <button ng-click="pager3.first()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-left"></i>
+                    </button>
+                    <button ng-click="pager3.prev()" class="btn btn-primary">
+                        <i class="fas fa-angle-left"></i>
+                    </button>
+                    <button class="btn btn-success">{{pager3.page + 1}} of {{pager3.count}}</button>
+                    <button ng-click="pager3.next()" class="btn btn-primary">
+                        <i class="fas fa-angle-right"></i>
+                    </button>
+                    <button ng-click="pager3.last()" class="btn btn-danger">
+                        <i class="fas fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    /// thông tin hóa đơn-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông tin hóa đơn: {{form3.ma}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid px-4">
+                        <div class="row">
+                            <div class="col-md-6 mt-2">
+                                <label>Mã hóa đơn</label>
+                                <input type="text" class="form-control" ng-model="form3.ma" readonly>
+                                <label>Tổng tiền</label>
+                                <input type="text" class="form-control" ng-model="form3.tongTien" readonly>
+                                <label>Điểm sử dụng</label>
+                                <input type="text" class="form-control" ng-model="form3.diemSuDung" readonly>
+                                <label>Ngày đặt hàng</label>
+                                <input type="text" class="form-control" ng-model="form3.ngayDatHang" readonly>
+                                <label>Người đặt hàng</label>
+                                <input type="text" class="form-control" ng-model="form3.userModel.profile.hoVaTen" readonly>
+                                <label>Số điện thoại</label>
+                                <input type="text" class="form-control" ng-model="form3.userModel.profile.phone" readonly>
+                                <label>Email</label>
+                                <input type="text" class="form-control" ng-model="form3.userModel.profile.email" readonly>
+                                <label>Địa chỉ người đặt hàng</label>
+                                <textarea type="text" class="form-control" ng-model="form3.userModel.profile.diaChi" readonly></textarea>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label>Địa chỉ giao hàng</label>
+                                <input type="text" class="form-control" ng-model="form3.diaChiGiaoHangModel.diaChi" readonly>
+                                <label>Người nhận hàng</label>
+                                <input type="text" class="form-control" ng-model="form3.diaChiGiaoHangModel.hoTen" readonly>
+                                <label>Số điện thoại người nhân</label>
+                                <input type="text" class="form-control" ng-model="form3.diaChiGiaoHangModel.sdt" readonly>
+                                <label>Phương thức vận chuyển</label>
+                                <input type="text" class="form-control" ng-model="form3.phuongThucVanChuyenModel.ten" readonly>
+                                <label>Phí vận chuyển</label>
+                                <input type="text" class="form-control" ng-model="form3.phuongThucVanChuyenModel.phiVanChuyen" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i> Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
